@@ -7,8 +7,9 @@ public class DialogueManager : MonoBehaviour
 {
     [SerializeField] private DialogueAsset dialogue;
     [SerializeField] private TextMeshProUGUI dialogueText;
+    [SerializeField] private TextMeshProUGUI characterText;
 
-    Queue<string> quedMessages = new Queue<string>();
+    Queue<DialogueMessage> quedMessages = new Queue<DialogueMessage>();
 
     private void Start()
     {
@@ -16,12 +17,13 @@ public class DialogueManager : MonoBehaviour
         ShowQuedMessage();
     }
 
-    public void SetText(string newText)
+    public void SetMessageTexts(DialogueMessage dm)
     {
-        dialogueText.text = newText;
+        dialogueText.text = dm.message;
+        characterText.text = dm.characterName;
     }
 
-    public void QueMessage(string message)
+    public void QueMessage(DialogueMessage message)
     {
         quedMessages.Enqueue(message);
     }
@@ -29,15 +31,15 @@ public class DialogueManager : MonoBehaviour
     public void ShowQuedMessage()
     {
         if (quedMessages.Count > 0)
-            SetText(quedMessages.Dequeue());
+            SetMessageTexts(quedMessages.Dequeue());
     }
     public void InitDialogue()
     {
         if (dialogue == null) return;
 
-        foreach (string line in dialogue.lines)
+        foreach (DialogueMessage dm in dialogue.messages)
         {
-            QueMessage(line);
+            QueMessage(dm);
         }
     }
 }

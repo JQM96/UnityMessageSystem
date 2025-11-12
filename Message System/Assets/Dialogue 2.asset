@@ -12,9 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 347a164def8581548b696b98073fec82, type: 3}
   m_Name: Dialogue 2
   m_EditorClassIdentifier: Assembly-CSharp::DialogueAsset
-  lines:
-  - This is dialogue 2
-  - Is slightly less cool...
-  - ...
-  - Yup.
-  - ...
+  messages:
+  - characterName: King dragon
+    message: So...
+  - characterName: King dragon
+    message: You finally came.
+  - characterName: King dragon
+    message: Well...
+  - characterName: King dragon
+    message: You'll never save prince Horace.

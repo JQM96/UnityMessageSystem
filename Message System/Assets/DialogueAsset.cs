@@ -4,5 +4,5 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "newDialogue")]
 public class DialogueAsset : ScriptableObject
 {
-    public List<string> lines;
+    public List<DialogueMessage> messages;
 }

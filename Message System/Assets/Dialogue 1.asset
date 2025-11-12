@@ -12,9 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 347a164def8581548b696b98073fec82, type: 3}
   m_Name: Dialogue 1
   m_EditorClassIdentifier: Assembly-CSharp::DialogueAsset
-  lines:
-  - This is dialogue 1
-  - Is very cool...
-  - Is cool very...
-  - Cool very it is...
-  - ...
+  messages:
+  - characterName: Pepe
+    message: Hello! My name is Pepe!
+  - characterName: Pepe
+    message: Nice to meet you!
+  - characterName: Narrator
+    message: Pepe waves his hand.
