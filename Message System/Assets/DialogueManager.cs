@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using Random = UnityEngine.Random;
 
 public class DialogueManager : MonoBehaviour
 {
@@ -11,7 +12,11 @@ public class DialogueManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI dialogueText;
     [SerializeField] private TextMeshProUGUI characterText;
     [SerializeField] private Image characterPortrait;
+
+    [Header("Typewriter effect")]
     [SerializeField] private float textSpeed;
+    [SerializeField] private AudioSource textAudioSource;
+    [SerializeField] private AudioClip textAudioClip;
 
     private Sprite lastCharacterPortrait;
 
@@ -67,6 +72,13 @@ public class DialogueManager : MonoBehaviour
 
         while (true)
         {
+
+            if (dialogueText.textInfo.characterInfo[dialogueText.maxVisibleCharacters].character != ' ')
+            {
+                textAudioSource.pitch = Random.Range(0.9f, 1.1f);
+                textAudioSource.PlayOneShot(textAudioClip);
+            }
+
             dialogueText.maxVisibleCharacters++;
 
             yield return new WaitForSeconds(1 / textSpeed);
