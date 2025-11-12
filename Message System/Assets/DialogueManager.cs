@@ -63,15 +63,18 @@ public class DialogueManager : MonoBehaviour
 
     private IEnumerator TypeWriteText()
     {
-        int totalCharacters = dialogueText.textInfo.characterCount;
-        int counter = 0;
+        dialogueText.maxVisibleCharacters = 0;
 
         while (true)
         {
-            counter++;
-            dialogueText.maxVisibleCharacters = counter;
+            dialogueText.maxVisibleCharacters++;
 
-            yield return new WaitForSeconds(1/textSpeed);
+            yield return new WaitForSeconds(1 / textSpeed);
+
+            if (dialogueText.maxVisibleCharacters >= dialogueText.textInfo.characterCount)
+            {
+                break;
+            }
         }
     }
 }
