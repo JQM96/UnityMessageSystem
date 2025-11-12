@@ -15,7 +15,10 @@ MonoBehaviour:
   messages:
   - characterName: Pepe
     message: Hello! My name is Pepe!
+    portrait: {fileID: 10911, guid: 0000000000000000f000000000000000, type: 0}
   - characterName: Pepe
     message: Nice to meet you!
+    portrait: {fileID: 10901, guid: 0000000000000000f000000000000000, type: 0}
   - characterName: Narrator
     message: Pepe waves his hand.
+    portrait: {fileID: 0}

@@ -2,12 +2,16 @@ using System;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class DialogueManager : MonoBehaviour
 {
     [SerializeField] private DialogueAsset dialogue;
     [SerializeField] private TextMeshProUGUI dialogueText;
     [SerializeField] private TextMeshProUGUI characterText;
+    [SerializeField] private Image characterPortrait;
+
+    private Sprite lastCharacterPortrait;
 
     Queue<DialogueMessage> quedMessages = new Queue<DialogueMessage>();
 
@@ -21,6 +25,12 @@ public class DialogueManager : MonoBehaviour
     {
         dialogueText.text = dm.message;
         characterText.text = dm.characterName;
+        characterPortrait.sprite = dm.portrait;
+
+        if (dm.portrait != null)
+            lastCharacterPortrait = dm.portrait;
+        else
+            characterPortrait.sprite = lastCharacterPortrait;
     }
 
     public void QueMessage(DialogueMessage message)

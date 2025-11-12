@@ -15,9 +15,13 @@ MonoBehaviour:
   messages:
   - characterName: King dragon
     message: So...
+    portrait: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
   - characterName: King dragon
     message: You finally came.
+    portrait: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
   - characterName: King dragon
     message: Well...
+    portrait: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
   - characterName: King dragon
     message: You'll never save prince Horace.
+    portrait: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
