@@ -1615,6 +1615,7 @@ MonoBehaviour:
   dialogueText: {fileID: 911129572}
   characterText: {fileID: 668040638}
   characterPortrait: {fileID: 1365572204}
+  textSpeed: 25
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

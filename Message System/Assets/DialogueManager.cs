@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -10,6 +11,7 @@ public class DialogueManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI dialogueText;
     [SerializeField] private TextMeshProUGUI characterText;
     [SerializeField] private Image characterPortrait;
+    [SerializeField] private float textSpeed;
 
     private Sprite lastCharacterPortrait;
 
@@ -40,8 +42,14 @@ public class DialogueManager : MonoBehaviour
 
     public void ShowQuedMessage()
     {
-        if (quedMessages.Count > 0)
-            SetMessageTexts(quedMessages.Dequeue());
+        if (quedMessages.Count <= 0)
+            return;
+
+        StopAllCoroutines();
+
+        SetMessageTexts(quedMessages.Dequeue());
+
+        StartCoroutine("TypeWriteText");
     }
     public void InitDialogue()
     {
@@ -50,6 +58,20 @@ public class DialogueManager : MonoBehaviour
         foreach (DialogueMessage dm in dialogue.messages)
         {
             QueMessage(dm);
+        }
+    }
+
+    private IEnumerator TypeWriteText()
+    {
+        int totalCharacters = dialogueText.textInfo.characterCount;
+        int counter = 0;
+
+        while (true)
+        {
+            counter++;
+            dialogueText.maxVisibleCharacters = counter;
+
+            yield return new WaitForSeconds(1/textSpeed);
         }
     }
 }
