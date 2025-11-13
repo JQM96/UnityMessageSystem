@@ -36,7 +36,9 @@ public class DialogueManager : MonoBehaviour
         dialogueText.text = dm.message;
         characterText.text = dm.characterName;
         characterPortrait.sprite = dm.portrait;
-        voiceLinesAudioSource.clip = dm.voiceLine;
+
+        if (voiceLinesAudioSource != null)
+            voiceLinesAudioSource.clip = dm.voiceLine;
 
         if (dm.portrait != null)
             lastCharacterPortrait = dm.portrait;
@@ -57,7 +59,8 @@ public class DialogueManager : MonoBehaviour
         StopAllCoroutines();
 
         SetMessageTexts(quedMessages.Dequeue());
-        voiceLinesAudioSource.Play();
+        if (voiceLinesAudioSource != null)
+            voiceLinesAudioSource.Play();
 
         StartCoroutine("TypeWriteText");
     }

@@ -1620,7 +1620,7 @@ MonoBehaviour:
   textSpeed: 25
   textAudioSource: {fileID: 2116685831}
   textAudioClip: {fileID: 0}
-  voiceLinesAudioSource: {fileID: 2116685832}
+  voiceLinesAudioSource: {fileID: 0}
 --- !u!82 &2116685831
 AudioSource:
   m_ObjectHideFlags: 0
