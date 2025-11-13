@@ -16,9 +16,12 @@ MonoBehaviour:
   - characterName: Pepe
     message: Hello! My name is Pepe!
     portrait: {fileID: 10911, guid: 0000000000000000f000000000000000, type: 0}
+    voiceLine: {fileID: 8300000, guid: fded8bac0846822499691e79e8a82691, type: 3}
   - characterName: Pepe
     message: Nice to meet you!
     portrait: {fileID: 10901, guid: 0000000000000000f000000000000000, type: 0}
+    voiceLine: {fileID: 8300000, guid: dc2457678a004c34aae5f019f6952bad, type: 3}
   - characterName: Narrator
     message: Pepe waves his hand.
     portrait: {fileID: 0}
+    voiceLine: {fileID: 0}

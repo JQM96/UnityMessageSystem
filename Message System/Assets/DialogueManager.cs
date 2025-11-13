@@ -18,6 +18,9 @@ public class DialogueManager : MonoBehaviour
     [SerializeField] private AudioSource textAudioSource;
     [SerializeField] private AudioClip textAudioClip;
 
+    [Header("Voice lines")]
+    [SerializeField] private AudioSource voiceLinesAudioSource;
+
     private Sprite lastCharacterPortrait;
 
     Queue<DialogueMessage> quedMessages = new Queue<DialogueMessage>();
@@ -33,6 +36,7 @@ public class DialogueManager : MonoBehaviour
         dialogueText.text = dm.message;
         characterText.text = dm.characterName;
         characterPortrait.sprite = dm.portrait;
+        voiceLinesAudioSource.clip = dm.voiceLine;
 
         if (dm.portrait != null)
             lastCharacterPortrait = dm.portrait;
@@ -53,6 +57,7 @@ public class DialogueManager : MonoBehaviour
         StopAllCoroutines();
 
         SetMessageTexts(quedMessages.Dequeue());
+        voiceLinesAudioSource.Play();
 
         StartCoroutine("TypeWriteText");
     }
